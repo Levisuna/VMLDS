@@ -29,19 +29,16 @@ return [
     */
 
     'disks' => [
-
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -51,17 +48,6 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
-        ],
-        'oss' => [
-            'driver' => 'oss',
-            'access_id' => env('OSS_ACCESS_KEY_ID'),
-            'access_key' => env('OSS_SECRET_ACCESS_KEY'),
-            'bucket' => env('OSS_BUCKET'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'url' => env('AWS_URL'),
-            'endpoint' => env('OSS_ENDPOINT'),
-            'isCName' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
-            'debug' => env('OSS_DEBUG', false)
         ],
 
     ],

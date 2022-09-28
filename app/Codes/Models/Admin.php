@@ -2,7 +2,6 @@
 
 namespace App\Codes\Models;
 
-use App\Codes\Models\V1\Klinik;
 use Illuminate\Database\Eloquent\Model;
 
 class Admin extends Model
@@ -33,11 +32,6 @@ class Admin extends Model
     {
         return \Carbon\Carbon::parse($this->attributes['created_at'])
             ->format('H:i:s Y-m-d ');
-    }
-
-    public function getKlinik()
-    {
-        return $this->belongsToMany(Klinik::class, 'admin_klinik', 'admin_id', 'klinik_id');
     }
 
 

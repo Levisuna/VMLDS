@@ -23,6 +23,6 @@ if ($fieldRequired == 1) {
         {{ Form::file($fieldName, $attribute) }}
         @endif
     @endif
-    @if(isset($fieldMessage)) <br/><span class="small">{{ $fieldMessage }}</span> @endif
+    @if(isset($fieldMessage)) <span class="small">{{ $fieldMessage }}</span> @endif
     @if($errors->has($fieldName)) <div class="form-control is-invalid" style="display: none;"></div><div class="invalid-feedback">{{ $errors->first($fieldName) }}</div> @endif
 </div>

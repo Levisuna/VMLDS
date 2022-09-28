@@ -3,9 +3,7 @@
 namespace App\Codes\Logic;
 
 use App\Http\Controllers\Controller;
-use App\Rules\Uniqueklinik;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
 
 class _GlobalFunctionController extends Controller
 {
@@ -35,44 +33,6 @@ class _GlobalFunctionController extends Controller
                 }
 
                 $validate[$key] = implode('|', $getValidate);
-
-            }
-            else {
-
-                $validate[$key] = '';
-
-            }
-        }
-
-        return $validate;
-    }
-
-    protected function setValidateDataClinic($getListCollectData, $formsType, $clinicId = 0, $id = null)
-    {
-        $validate = [];
-        foreach ($getListCollectData as $key => $setData) {
-            if (strlen($setData['validate'][$formsType]) > 0) {
-                $getListValidate = explode('|', $setData['validate'][$formsType]);
-                $getValidate = [];
-                foreach ($getListValidate as $listValidate) {
-                    if(strpos($listValidate, 'uniqueklinik') === 0) {
-                        $getAttrValidate = explode(':', $listValidate);
-                        $getAttr = explode(',', $getAttrValidate[1]);
-                        $getValidate[] = new Uniqueklinik($getAttr[0], $getAttr[1], $clinicId, $id);
-                    }
-                    else if(strpos($listValidate, 'unique') === 0) {
-                        $setValidate = $listValidate;
-                        if ($id != null) {
-                            $setValidate .= ','.$id;
-                        }
-                        $getValidate[] = $setValidate;
-                    }
-                    else {
-                        $getValidate[] = $listValidate;
-                    }
-                }
-
-                $validate[$key] = $getValidate;
 
             }
             else {

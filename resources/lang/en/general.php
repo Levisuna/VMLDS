@@ -9,13 +9,10 @@ return [
     */
 
     'add' => 'Add',
-    'appointment_lab_schedule' => 'Lab Schedule',
-    'doctor_or_lab' => 'Doctor / Lab Name',
     'faqs' => 'Faqs',
     'phone' => 'No Telp',
     'mail' => 'Mail',
     'klinik' => 'Klinik',
-    'nama_klinik' => 'Nama Klinik',
     'banner' => 'Banner',
     'target' => 'Target',
     'clinic_info' => 'Info Klinik',
@@ -39,8 +36,6 @@ return [
     'medipay_lab' => 'Jasa Lab',
     'sample' => 'Sample',
 
-    'upload_hasil_lab' => 'Upload Hasil Lab',
-    'reupload_hasil_lab' => 'Reupload Hasil Lab',
     'date_available' => 'Date Available',
     'time_start' => 'Waktu Mulai',
     'time_end' => 'Waktu Berakhir',
@@ -692,14 +687,13 @@ return [
     'order_not_complete' => 'Order Belum Selesai',
     'data_not_in_lab' => 'Sample belum di Lab',
 
-
-    'order_via_medipay' => 'Pemesanan via e-Katalog',
-    'no_tagihan' => 'Nomor Tagihan',
-    'ttd' => 'TTD Penanggung Jawab',
     'responsible_personnel' => 'Penanggung Jawab',
     'duplicate' => 'Duplicate',
-    'used_amount_passed_pagu_amount' => 'Penggunaan Pagu Melebihi Batas Yang Diberikan',
-    'total_without_tax' => 'Total (Belum Termasuk Pajak)',
-    'schedule_holiday' => 'Schedule Libur'
+
+    'contact_button' => 'Contact Button',
+    'our_vision' => 'Our Vision',
+    'our_mission' => 'Our Mission',
+    'our_vision_content' => 'Our Vision Content',
+    'our_mission_content' => 'Our Mission Content',
 
 ];

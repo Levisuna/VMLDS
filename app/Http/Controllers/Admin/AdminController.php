@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Codes\Logic\_CrudController;
-use App\Codes\Models\Admin;
 use App\Codes\Models\Role;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;

@@ -20,6 +20,12 @@ class Role extends Model
         $this->hasMany(Admin::class, 'role_id', 'id');
     }
 
+    public function getCreatedAtAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['created_at'])
+            ->format('H:i:s Y-m-d ');
+    }
+
     public static function boot()
     {
         parent::boot();

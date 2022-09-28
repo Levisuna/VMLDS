@@ -1,11 +1,10 @@
 PAT Tokens (Cloning With Https):
-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
+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
 
 How To Install:
-1. Terminal Command - Clone (git clone https://github.com/MisleadX/Template.git), Input Username Git dan Password = PAT Tokens
-2. Terminal Command - Composer Install (composer install --ignore-platform-reqs)
-3. Copy File .env.example dan Rename Menjadi .env
-4. Sesuaikan Credential Database Pada File .env
-5. Terminal Command - "php artisan key:generate"
-6. Terminal Command - "php artisan migrate --seed"
-7. Terminal Command - "php artisan serve"
+1. Terminal Command - Composer Install (composer install)
+2. Copy File .env.example dan Rename Menjadi .env
+3. Sesuaikan Credential Database Pada File .env
+4. Terminal Command - "php artisan key:generate"
+5. Terminal Command - "php artisan migrate --seed"
+6. Terminal Command - "php artisan serve"

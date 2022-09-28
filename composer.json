@@ -6,13 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "box/spout": "^3.3",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.5",
         "laravel/framework": "^8.54",
-        "laravel/horizon": "^5.7",
-        "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.2",
         "psr/log": "1.1",
@@ -23,7 +19,6 @@
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
     },

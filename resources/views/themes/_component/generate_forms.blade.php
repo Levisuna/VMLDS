@@ -6,10 +6,10 @@
                 $fieldValue = $data->{$fieldName.'_full'};
             }
             else if (strlen($fieldValue) > 0) {
-                $fieldValue = asset($fieldData['path'].$fieldValue);
+                $fieldValue = asset('storage/'.$fieldValue);
             }
             else {
-                $fieldValue = null;
+                $fieldValue = asset('assets/cms/images/no-img.png');
             }
         }
 
@@ -31,7 +31,7 @@
         }
         else if(in_array($fieldData['type'], ['file', 'file_many', 'image', 'image_many'])) {
             if(in_array($viewType, ['edit', 'create'])) {
-                $listPassing['fieldMessage'] = 'Max Upload file adalah 2Mb';
+//                $listPassing['fieldMessage'] = 'Max Upload file adalah 2Mb';
             }
         }
         $listPassing['listFieldName'] = $arrayPassing;
