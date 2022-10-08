@@ -1,6 +1,3 @@
-PAT Tokens (Cloning With Https):
-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
-
 How To Install:
 1. Terminal Command - Composer Install (composer install)
 2. Copy File .env.example dan Rename Menjadi .env
