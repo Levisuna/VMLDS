@@ -36,7 +36,7 @@ class PageController extends _CrudController
                 'validate' => [
                     'edit' => 'required'
                 ],
-                'type' => 'texteditor',
+                'type' => 'textarea',
                 'list' => 0
             ],
             'image' => [
@@ -78,7 +78,7 @@ class PageController extends _CrudController
                 'validate' => [
                     'edit' => 'required'
                 ],
-                'type' => 'texteditor',
+                'type' => 'textarea',
             ],
             'image' => [
                 'path' => '/img',
@@ -124,7 +124,7 @@ class PageController extends _CrudController
                 'validate' => [
                     'edit' => 'required'
                 ],
-                'type' => 'texteditor',
+                'type' => 'textarea',
             ],
             'image' => [
                 'path' => '/img',
@@ -140,7 +140,7 @@ class PageController extends _CrudController
                 'validate' => [
                     'edit' => 'required'
                 ],
-                'type' => 'texteditor',
+                'type' => 'textarea',
                 'lang' => 'general.our_vision_content'
             ],
             'title_3' => [
@@ -153,7 +153,7 @@ class PageController extends _CrudController
                 'validate' => [
                     'edit' => 'required'
                 ],
-                'type' => 'texteditor',
+                'type' => 'textarea',
                 'lang' => 'general.our_mission_content'
             ],
             'created_at' => [

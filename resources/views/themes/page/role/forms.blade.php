@@ -125,7 +125,6 @@ $getPermissionData = isset($data) ? json_decode($data->permission_data, TRUE) : 
                 }
                 else {
                     $('#super_admin').prop( "checked", false );
-                    $('#role_clinic').prop( "checked", false );
                     $('.' + name).prop( "checked", false );
                 }
             });
@@ -133,7 +132,6 @@ $getPermissionData = isset($data) ? json_decode($data->permission_data, TRUE) : 
         @if (in_array($viewType, ['show']))
         $('.checkThis').attr('disabled', true);
         $('#super_admin').attr('disabled', true);
-        $('#role_clinic').attr('disabled', true);
         @endif
     </script>
 @stop

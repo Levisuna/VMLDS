@@ -93,7 +93,7 @@ class _GlobalFunctionController extends Controller
                             $setFileName = Storage::putFile($destinationPath, $image);
 //                            $image->move($destinationPath, $setFileName);
 
-                            $data[$imageKey] = $setFileName;
+                            $data[$imageKey] = 'storage/'.$setFileName;
                         }
                     }
                 }
@@ -116,7 +116,7 @@ class _GlobalFunctionController extends Controller
 
                         $setFileName = Storage::putFile($destinationPath, $image);
 //                        $image->move($destinationPath, $setFileName);
-                        $data[$imageKey] = $setFileName;
+                        $data[$imageKey] = 'storage/'.$setFileName;
                     }
                 }
             }

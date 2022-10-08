@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Website;
 
 
+use App\Codes\Models\Page;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class HomeController extends Controller
 {
     protected $data;
     protected $request;
@@ -14,17 +15,25 @@ class DashboardController extends Controller
     public function __construct(Request $request)
     {
         $this->request = $request;
+
+        $getPage = Page::pluck('value', 'key')->toArray();
+
+        $listPage = [];
+        foreach($getPage as $key => $value) {
+            $listPage[$key] = json_decode($value, true);
+        }
+
+
         $this->data = [
-            'thisLabel' => 'Dashboard',
-            'thisRoute' => 'dashboard',
+            'page' => $listPage
         ];
     }
 
-    public function dashboard()
+    public function index()
     {
         $data = $this->data;
 
-        return view(env('ADMIN_TEMPLATE').'.page.dashboard', $data);
+        return view(env('WEBSITE_TEMPLATE').'.page.home', $data);
     }
 
 }

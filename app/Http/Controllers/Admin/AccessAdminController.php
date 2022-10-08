@@ -41,42 +41,12 @@ class AccessAdminController extends Controller
             $getPermissionData = isset($getRole) ? json_decode($getRole->permission_data, TRUE) : null;
 
             $getRoleSuperAdmin = isset($getPermissionData['super_admin']) ? 1: 0;
-            $getRoleClinic = isset($getPermissionData['role_clinic']) ? 1 : 0;
 
-            $getClinic = 0;
-//            $getTypeClinic = 0;
-            $getClinicName = '';
-            $getClinicThemesColor = '';
-            $getClinicLogo = '';
-            $getClinicFontColor = '';
-            $getClinicActiveButtonColor = '';
-            if ($getRoleClinic == 1) {
-                $getClinicData = $user->getKlinik()->first();
-                if ($getClinicData) {
-                    $getClinic = $getClinicData->id;
-//                    $getTypeClinic = $getClinicData->type_klinik;
-                    $getClinicName = $getClinicData->name;
-                    $getClinicThemesColor = $getClinicData->theme_color;
-                    $getClinicLogo = $getClinicData->logo_full;
-                    $getParameter = json_decode($getClinicData->parameter, TRUE);
-                    $getClinicFontColor = $getParameter['font_color'] ?? '';
-                    $getClinicActiveButtonColor = $getParameter['active_button_color'] ?? '';
-                }
-            }
 
             session()->flush();
             session()->put('admin_id', $user->id);
             session()->put('admin_name', $user->name);
             session()->put('admin_role', $user->role_id);
-            session()->put('admin_clinic_id', $getClinic);
-            session()->put('admin_clinic_name', $getClinicName);
-//            session()->put('admin_clinic_type', $getTypeClinic);
-            session()->put('admin_role_clinic', $getRoleClinic);
-            session()->put('admin_clinic_themes_color', $getClinicThemesColor);
-            session()->put('admin_clinic_logo', $getClinicLogo);
-            session()->put('admin_clinic_font_color', $getClinicFontColor);
-            session()->put('admin_clinic_active_button_color', $getClinicActiveButtonColor);
-            session()->put('admin_super_admin', $getRoleSuperAdmin);
             try {
                 session_start();
                 $_SESSION['set_login_ck_editor'] = 1;

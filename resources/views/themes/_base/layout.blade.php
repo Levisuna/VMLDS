@@ -1,9 +1,3 @@
-<?php
-    $clinicThemesColor = session()->get('admin_clinic_themes_color') ?? '';
-    $clinicLogo = session()->get('admin_clinic_logo') ?? '';
-    $getClinicFontColor = session()->get('admin_clinic_font_color') ?? '';
-    $getClinicActiveButtonColor = session()->get('admin_clinic_active_button_color') ?? '';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +24,6 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">{{ session('admin_clinic_name') }}</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -94,10 +85,10 @@
 @section('script-bottom')
     <script src="{{ asset('/assets/cms/js/app.js') }}"></script>
     <script src="{{ asset('/assets/cms/js/moment.min.js') }}"></script>
-    <script src="{{ asset('/assets/cms/js/money.js') }}"></script>
-    <script src="{{ asset('/assets/cms/js/calendar/fullcalendar.min.js') }}"></script>
+{{--    <script src="{{ asset('/assets/cms/js/money.js') }}"></script>--}}
+{{--    <script src="{{ asset('/assets/cms/js/calendar/fullcalendar.min.js') }}"></script>--}}
     <script src="{{ asset('/assets/cms/dropify/js/dropify.js')}}"> </script>
-    <script src="{{ asset('/assets/cms/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+{{--    <script src="{{ asset('/assets/cms/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>--}}
     @if(session()->has('message'))
         <?php
         switch (session()->get('message_alert')) {

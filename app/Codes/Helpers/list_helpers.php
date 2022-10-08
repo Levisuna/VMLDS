@@ -29,20 +29,6 @@ if ( ! function_exists('get_list_status_users')) {
     }
 }
 
-if ( ! function_exists('get_list_add_to_clinic')) {
-    /**
-     * @return array
-     */
-    function get_list_add_to_clinic(): array
-    {
-        return [
-            0 => __('general.all'),
-            80 => __('general.yes'),
-            99 => __('general.no')
-        ];
-    }
-}
-
 if ( ! function_exists('get_list_available_non_available')) {
     /**
      * @return array
@@ -141,18 +127,6 @@ if ( ! function_exists('get_list_type_transaction3')) {
             6 => __('HomeCare'),
             7 => __('Visit'),
             8 => __('Nurse'),
-        ];
-    }
-}
-
-
-if ( ! function_exists('get_list_product_type')) {
-    function get_list_product_type()
-    {
-        return [
-            0 => __('All'),
-            1 => __('Clinic Product'),
-            2 => __('Synapsa Product'),
         ];
     }
 }

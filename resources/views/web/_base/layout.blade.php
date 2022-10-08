@@ -1,9 +1,3 @@
-<?php
-    $clinicThemesColor = session()->get('admin_clinic_themes_color') ?? '';
-    $clinicLogo = session()->get('admin_clinic_logo') ?? '';
-    $getClinicFontColor = session()->get('admin_clinic_font_color') ?? '';
-    $getClinicActiveButtonColor = session()->get('admin_clinic_active_button_color') ?? '';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,102 +10,130 @@
     <title>{{ env('WEBSITE_NAME') }} | @yield('title')</title>
 
     @section('css')
-            <link rel="stylesheet" href="{{ asset('/assets/cms/css/app.css') }}">
-{{--            <link rel="stylesheet" href="{{ asset('/assets/cms/js/calendar/fullcalendar.css') }}">--}}
-            <link rel="stylesheet" href="{{ asset('/assets/cms/dropify/css/dropify.min.css') }}">
-{{--            <link rel="stylesheet" href="{{ asset('/assets/cms/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">--}}
+        <link rel="stylesheet" href="{{ asset('/assets/cms/css/app.css') }}">
+        <style>
+            body {
+                font-family: 'Aquino';
+                max-width: 1280px;
+                margin: 0 auto !important; 
+            }
+
+            nav {
+                font-size: 24px;
+            }
+
+            .navbar-brand {
+                font-size: 24px;
+                color: #000000;
+            }
+
+            .navbar-nav .nav-item .nav-link {
+                color: #788BFF;
+                /* color: #FFFFFF; */
+            }
+
+            .navbar-toggler-icon{
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+
+            #navbarNav ul {
+                display: flex;
+                flex-direction: column;
+            }
+
+            @media (min-width: 993px) {
+                #navbarNav ul {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 30px;
+                }
+            }
+
+            .navbar .navbar-toggler[aria-expanded="true"] nav {
+                background: #FFFFFF;
+            }
+        </style>
     @show
     @section('script-top')
     @show
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
-<div class="wrapper">
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">{{ session('admin_clinic_name') }}</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.profile.index') }}" class="nav-link">{{ session('admin_name')  }}</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.logout') }}" class="nav-link">@lang('general.sign_out')</a>
-            </li>
-        </ul>
-    </nav>
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="{{ route('admin') }}" class="brand-link logo-switch ">
-            <span class="brand-image-xl logo-xs">
-                {{ substr(env('WEBSITE_NAME'), 0, 2) }}
-            </span>
-            <span class="brand-image-xs logo-xl">
-                {{ env('WEBSITE_NAME') }}
-            </span>
-        </a>
-        <div class="sidebar">
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu">
-                    <li class="nav-item">
-                        <a href="{{ route('admin') }}" class="nav-link{{ Route::current()->action['as'] === 'admin' ? ' active' : '' }}">
-                            <i class="nav-icon fa fa-dashboard"></i>
-                            <p>
-                                @lang('general.dashboard')
-                            </p>
-                        </a>
-                    </li>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg">
+    <div class="container-lg">
+        <a class="navbar-brand" href="#">VML</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    {!! generateMenu() !!}
-                    <li class="nav-item">
-                        <a href="{{ route('admin.logout') }}" class="nav-link">
-                            <i class="nav-icon fa fa-power-off"></i>
-                            <p>
-                                @lang('general.logout')
-                            </p>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="collapse navbar-collapse pl-lg-5" id="navbarNav">
+            <ul class="navbar-nav mx-lg-4 mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
         </div>
-    </aside>
-
-    <div class="content-wrapper">
-        @yield('content')
     </div>
+</nav>
 
-    <footer class="main-footer no-print">
-        <div class="float-right d-none d-sm-inline">
-            v1.0.0
-        </div>
-        <strong>Copyright &copy; {{ date('Y') }} {{ env('WEBSITE_NAME') }}.</strong> All rights reserved.
-    </footer>
-
+<div class="content-section">
+    @yield('content')
 </div>
+
 @section('script-bottom')
     <script src="{{ asset('/assets/cms/js/app.js') }}"></script>
     <script src="{{ asset('/assets/cms/js/moment.min.js') }}"></script>
-    <script src="{{ asset('/assets/cms/js/money.js') }}"></script>
-    <script src="{{ asset('/assets/cms/js/calendar/fullcalendar.min.js') }}"></script>
-    <script src="{{ asset('/assets/cms/dropify/js/dropify.js')}}"> </script>
-    <script src="{{ asset('/assets/cms/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
-    @if(session()->has('message'))
+    <script type="text/javascript">
+        var nav = document.querySelector('nav');
+        var navbarNavLink = document.querySelectorAll('#navbarNav .nav-link');
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 60) {
+                nav.classList.add('bg-white', 'shadow')
+            } else {
+                nav.classList.remove('bg-white', 'shadow');
+            }
+        });
+
+        $('.navbar-toggler').click(function() {
+            if($(".navbar-toggler").attr("aria-expanded")){
+                nav.classList.add('bg-white', 'shadow');
+            }
+        });
+    </script>
+    {{-- @if(session()->has('message'))
         <?php
-        switch (session()->get('message_alert')) {
-            case 2 : $type = 'success'; break;
-            case 3 : $type = 'info'; break;
-            default : $type = 'danger'; break;
-        }
+        // switch (session()->get('message_alert')) {
+        //     case 2 :
+        //         $type = 'success';
+        //         break;
+        //     case 3 :
+        //         $type = 'info';
+        //         break;
+        //     default :
+        //         $type = 'danger';
+        //         break;
+        // }
         ?>
         <script type="text/javascript">
             'use strict';
             $.notify({
                 // options
                 message: '{!! session()->get('message') !!}'
-            },{
+            }, {
                 // settings
                 type: '{!! $type !!}',
                 placement: {
@@ -133,7 +155,7 @@
                         $.notify({
                             // options
                             message: item[0]
-                        },{
+                        }, {
                             // settings
                             type: 'danger',
                             placement: {
@@ -142,14 +164,13 @@
                             },
                         });
                     });
-                }
-                else if (typeof err.responseJSON.message === 'string') {
+                } else if (typeof err.responseJSON.message === 'string') {
                     textError = err.responseJSON.message;
                     $('#errorForm').html(err.responseJSON.message);
                     $.notify({
                         // options
                         message: err.responseJSON.message
-                    },{
+                    }, {
                         // settings
                         type: 'danger',
                         placement: {
@@ -157,13 +178,12 @@
                             align: "right"
                         },
                     });
-                }
-                else if (typeof err.responseJSON.message === 'object') {
+                } else if (typeof err.responseJSON.message === 'object') {
                     textError = err.responseJSON.message[0];
                     $.notify({
                         // options
                         message: err.responseJSON.message[0]
-                    },{
+                    }, {
                         // settings
                         type: 'danger',
                         placement: {
@@ -177,7 +197,7 @@
             return textError;
         }
 
-    </script>
+    </script> --}}
 @show
 </body>
 </html>

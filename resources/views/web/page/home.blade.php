@@ -1,50 +1,83 @@
-@extends(env('ADMIN_TEMPLATE').'._base.layout')
+@extends(env('WEBSITE_TEMPLATE').'._base.layout')
 
 @section('title', __('general.dashboard'))
 
-@section('content')
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>@lang('general.dashboard')</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li><a href="<?php echo route('admin') ?>"><i class="fa fa-dashboard"></i> {{ __('general.home') }}</a></li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
+<style>
+    .homepage {
+        height: 500px;
+        background: radial-gradient(circle at right center,  #788BFF 0%,#788BFF 50%,#788BFF 50%, transparent 0,transparent 0);
+        color: #788BFF;
+    }
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">@lang('general.dashboard')</h3>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            Welcome, {{ session('admin_name') }}<br />
-                        </div>
-                    </div>
-                </div>
+    .homepage-desc {
+        color: #674848;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    .homepage-details {
+        padding: 0 2rem;
+    }
+</style>
+
+@section('content')
+    <div class="homepage row">
+        <div class="col-12 col-md-6 align-self-center">
+            <div class="homepage-details">
+                <h2 class="text-bold">
+                    {{ $page['homepage']['title'] }} 
+                </h2>
+                <p class="homepage-desc pl-1">
+                    {{ $page['homepage']['content'] }}
+                </p>
             </div>
         </div>
-    </section>
-
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center home-logo">
+            <img src="{{ asset($page['homepage']['image']) }}" class="img-responsive img-fluid w-75" alt="Homepage Logo"/>
+        </div>
+    </div>
+    <div class="about">
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+        <p>asdasfasgasgagasg</p>
+    </div>
 @stop
 
 @section('script-bottom')
     @parent
-    @include(env('ADMIN_TEMPLATE').'._component.generate_forms_script')
-    <script src="{{ asset('assets/cms/js/highcharts/highcharts.js') }}"></script>
-
-    <script type="text/javascript">
-
-    </script>
 @stop

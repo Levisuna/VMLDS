@@ -46,7 +46,4 @@ Route::group(['prefix' => env('ADMIN_URL'), 'middleware' => ['web']], function (
     });
 });
 
-
-Route::get('/', function () {
-    return redirect()->route(env('ADMIN_URL') . '.login');
-});
+$router->get('/', ['uses' => 'App\Http\Controllers\Website\HomeController@index'])->name('home');
