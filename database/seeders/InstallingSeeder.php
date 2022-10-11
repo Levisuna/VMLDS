@@ -33,5 +33,29 @@ class InstallingSeeder extends Seeder
             'updated_at' => Carbon::now(),
         ]);
 
+        DB::table('page')->insertGetId([
+            'name' => 'Home Page',
+            'key' => 'homepage',
+            'value' => null,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('page')->insertGetId([
+            'name' => 'About Page',
+            'key' => 'about',
+            'value' => null,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        DB::table('page')->insertGetId([
+            'name' => 'Contact Page',
+            'key' => 'contact',
+            'value' => null,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
     }
 }

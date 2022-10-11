@@ -2,6 +2,11 @@
 
 @section('title', __('general.dashboard'))
 
+<?php
+    $homepage = $page['homepage'] ?? [];
+    $about = $page['about'] ?? [];
+?>
+
 <style>
     .homepage {
         height: 500px;
@@ -25,15 +30,15 @@
         <div class="col-12 col-md-6 align-self-center">
             <div class="homepage-details">
                 <h2 class="text-bold">
-                    {{ $page['homepage']['title'] }} 
+                    {{ $homepage['title'] ?? '' }} 
                 </h2>
                 <p class="homepage-desc pl-1">
-                    {{ $page['homepage']['content'] }}
+                    {{ $homepage['content'] ?? '' }}
                 </p>
             </div>
         </div>
         <div class="col-12 col-md-6 d-flex align-items-center justify-content-center home-logo">
-            <img src="{{ asset($page['homepage']['image']) }}" class="img-responsive img-fluid w-75" alt="Homepage Logo"/>
+            <img src="{{ isset($homepage['image']) ? asset($homepage['image']) : asset('assets/cms/images/no-img.png') }}" class="img-responsive img-fluid w-75" alt="Homepage Logo"/>
         </div>
     </div>
     <div class="about">
